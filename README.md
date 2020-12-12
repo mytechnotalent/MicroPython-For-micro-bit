@@ -6,7 +6,7 @@ A FREE MicroPython course designed to teach MicroPython with specific applicatio
 ## Lesson 1: MicroPython For micro:bit (Part 1: Basic I/O)
 This tutorial will discuss MicroPython basic input and output for the micro:bit V2.
 
--> Click [HERE]() to read the article on LinkedIn.
+-> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-1-basic-io-kevin-thomas/) to read the article on LinkedIn.
 
 ## License
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)

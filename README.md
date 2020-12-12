@@ -8,5 +8,7 @@ This tutorial will discuss MicroPython basic input and output for the micro:bit 
 
 -> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-1-basic-io-kevin-thomas/) to read the article on LinkedIn.
 
+## Lesson 2: COMING SOON!
+
 ## License
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)

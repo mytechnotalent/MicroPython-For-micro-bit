@@ -3,7 +3,7 @@ second_number = int(input('Enter Second Number: '))
 
 
 my_addition = first_number + second_number
-my_subtraction = first_number + second_number
+my_subtraction = first_number - second_number
 my_multiplication = first_number * second_number
 my_division = first_number / second_number
 

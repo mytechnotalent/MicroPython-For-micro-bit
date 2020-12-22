@@ -1,4 +1,4 @@
-![image](https://github.com/mytechnotalent/micropython_for_microbit/blob/main/MicroPython%20For%20micro_bit%20.png?raw=true)
+![image](https://github.com/mytechnotalent/micropython_for_microbit/blob/main/MicroPython%20For%20micro_bit.png?raw=true)
 
 # MicroPython For micro:bit
 A FREE MicroPython course designed to teach MicroPython with specific application to the micro:bit V2.

@@ -21,7 +21,7 @@ This tutorial will discuss MicroPython conditional logic and application flow ch
 ## Lesson 4: MicroPython For micro:bit (Part 4: Lists, Dictionaries & Loops)
 This tutorial will discuss MicroPython lists, dictionaries and loops for the micro:bit V2.
 
--> Click [HERE]() to read the article on LinkedIn.
+-> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-4-lists-dictionaries-loops-kevin-thomas/) to read the article on LinkedIn.
 
 ## Lesson 5: COMING SOON!
 

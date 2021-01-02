@@ -19,14 +19,14 @@ while True:
             pass
         else:
             number_position += 1
-            display.scroll(number_position)
+            display.show(number_position)
             
     if button_b.was_pressed():
         if number_position == 1:
             pass
         else:
             number_position -= 1
-            display.scroll(number_position)
+            display.show(number_position)
      
     if pin_logo.is_touched():
         if number_position == random_number:

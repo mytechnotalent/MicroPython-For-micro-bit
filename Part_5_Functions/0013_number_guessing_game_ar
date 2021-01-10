@@ -1,5 +1,5 @@
 Number Guessing Game Application Requirements
-------------------------_--------------------
+---------------------------------------------
 1. Define the purpose of the application.
    a. Create a game where a computer randomly chooses a number between
       1 and 9.  The player will enter a choice and will get 3 guesses

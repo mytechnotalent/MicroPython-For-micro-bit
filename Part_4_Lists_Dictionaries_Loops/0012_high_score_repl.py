@@ -14,4 +14,4 @@ for score in scores:
   if score > highest_score:
     highest_score = score
 
-print('The hightest score is {0}!'.format(highest_score))
+print('The highest score is {0}!'.format(highest_score))

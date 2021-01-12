@@ -43,8 +43,8 @@ elif computer_choice == 'Paper' and player_choice == 'Rock':
   print('Player - {0}'.format(game_choices[0]))
   print('Computer Wins!')
 elif computer_choice == 'Rock' and player_choice == 'Paper':
-  print('Computer - {0}'.format(game_images[0]))
-  print('Player - {0}'.format(game_images[1]))
+  print('Computer - {0}'.format(game_choices[0]))
+  print('Player - {0}'.format(game_choices[1]))
   print('Player Wins!')
 else:
   if computer_choice == 'Rock':

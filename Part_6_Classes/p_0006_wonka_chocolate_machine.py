@@ -130,6 +130,9 @@ class Machine:
 
         Params:
             shutdown_password: str
+            
+        Returns:
+            False or str
         """
         entered_password = input('ENTER SHUTDOWN PASSWORD: ')
         if entered_password == shutdown_password:

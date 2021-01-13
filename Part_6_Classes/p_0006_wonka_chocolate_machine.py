@@ -48,15 +48,15 @@ CHOCOLATE_CHOICES = {
 }
 
 raw_materials = {
-    'sugar': 5,
-    'butter': 5,
+    'sugar': 2,
+    'butter': 2,
     'caramel': 15,
     'dark chocolate': 30,
     'mint chocolate': 30,
     'milk chocolate': 30,
-    'light corn syrup': 5,
-    'sweetened condensed milk': 5,
-    'vanilla extract': 5,
+    'light corn syrup': 2,
+    'sweetened condensed milk': 2,
+    'vanilla extract': 2,
     'Reese\'s Pieces': 15,
 }
 
@@ -65,6 +65,7 @@ class Machine:
     """
     Base class to represent a generic vending machine
     """
+
     def __init__(self):
         """
         Attrs:
@@ -79,7 +80,7 @@ class Machine:
     def stats(self):
         """
         Show machine statistics
-        
+
         Returns:
             str
         """
@@ -102,7 +103,7 @@ class Machine:
             if self.__money_collected <= 0.00:
                 return 'Please enter coins...'
             elif self.__money_collected >= max_value:
-                return 'Machine can\'t hold more than ${0:.2f}...\n'.format(max_value)
+                return 'Machine can\'t hold more than ${0:.2f}...  Dispensing coins inserted.\n'.format(max_value)
             else:
                 return self.__money_collected
         except ValueError:
@@ -120,7 +121,7 @@ class Machine:
         excess_money_collected = round(self.__money_collected - price, 2)
         if self.__money_collected >= price:
             self.__total_money_collected += price
-            return 'Change: ${0:.2f}'.format(excess_money_collected)
+            return 'Change: ${0:.2f}\n'.format(excess_money_collected)
         else:
             return 'Insufficient funds...  Dispensing coins inserted.\n'.format(excess_money_collected)
 
@@ -130,7 +131,7 @@ class Machine:
 
         Params:
             shutdown_password: str
-            
+
         Returns:
             False or str
         """
@@ -145,6 +146,7 @@ class ChocolateMachine(Machine):
     """
     Child class to represent a chocolate machine inheriting from the Machine base class
     """
+
     def __init__(self, choices):
         """
         Attrs:
@@ -156,7 +158,7 @@ class ChocolateMachine(Machine):
     def stats(self):
         """
         Show machine statistics
-        
+
         Returns:
             str
         """
@@ -174,31 +176,39 @@ class ChocolateMachine(Machine):
         return cm_stats
 
     @staticmethod
-    def has_raw_materials():
+    def has_raw_materials(m_raw_materials):
         """Check if there are enough raw materials in the machine
 
+        Params:
+            m_raw_materials: dict
+
         Returns:
-            str or False
+            str or True
         """
         additional_resources_needed = ''
-        for raw_material in raw_materials:
-            if raw_materials[raw_material] > raw_materials[raw_material]:
-                additional_resources_needed += 'Machine Needs Additional: {0}'.format(raw_material)
+        for m_raw_material in m_raw_materials:
+            if m_raw_materials[m_raw_material] > raw_materials[m_raw_material]:
+                additional_resources_needed += 'Machine Needs Additional: {0}\n'.format(m_raw_material)
         if additional_resources_needed:
             return additional_resources_needed
         else:
-            return False
+            return True
 
-    def bake_chocolate_bar(self):
+    @staticmethod
+    def bake_chocolate_bar(chocolate_choice, m_raw_materials):
         """
         Bake chocolate bar from raw materials
+
+        Params:
+            chocolate_choice: str
+            m_raw_materials: dict
 
         Returns:
             str
         """
-        for raw_material in raw_materials:
-            raw_materials[raw_material] -= raw_materials[raw_material]
-        return 'A {0} chocolate bar dispensed!\n'.format(self.choices)
+        for m_raw_material in m_raw_materials:
+            raw_materials[m_raw_material] -= m_raw_materials[m_raw_material]
+        return 'A {0} chocolate bar dispensed!'.format(chocolate_choice)
 
 
 chocolate_machine_active = True
@@ -222,17 +232,22 @@ while chocolate_machine_active:
         print(stats)
     elif valid_choice:
         selection = CHOCOLATE_CHOICES[choice]
-        chocolate_machine.has_raw_materials()
-        money = chocolate_machine.collect_money(100.00)
-        if not isinstance(money, float):
-            print(money)
-        else:
-            not_enough_money = chocolate_machine.has_enough_money(selection['price'])
-            if not_enough_money:
-                print(not_enough_money)
+        has_enough_raw_materials = chocolate_machine.has_raw_materials(selection['ingredients'])
+        if not isinstance(has_enough_raw_materials, bool):
+            print(has_enough_raw_materials)
+            chocolate_machine_active = False
+        if isinstance(has_enough_raw_materials, bool):
+            money = chocolate_machine.collect_money(100.00)
+            if not isinstance(money, float):
+                print(money)
             else:
-                chocolate_bar = chocolate_machine.bake_chocolate_bar()
-                print(chocolate_bar)
+                change = chocolate_machine.has_enough_money(selection['price'])
+                if change == 'Insufficient funds...  Dispensing coins inserted.\n':
+                    print(change)
+                else:
+                    chocolate_bar = chocolate_machine.bake_chocolate_bar(choice, selection['ingredients'])
+                    print(chocolate_bar)
+                    print(change)
     elif valid_choice:
         chocolate_machine_active = False
 

@@ -79,6 +79,9 @@ class Machine:
     def stats(self):
         """
         Show machine statistics
+        
+        Returns:
+            str
         """
         return 'Total Money Collected: ${0:.2f}\n'.format(self.__total_money_collected)
 
@@ -150,6 +153,9 @@ class ChocolateMachine(Machine):
     def stats(self):
         """
         Show machine statistics
+        
+        Returns:
+            str
         """
         cm_stats = 'sugar {0} tablespoons remaining\n'.format(raw_materials['sugar'])
         cm_stats += 'butter {0} teaspoons remaining\n'.format(raw_materials['butter'])

@@ -102,7 +102,7 @@ def collect_money(f_max_value, m_quarters, m_dimes, m_nickels):
             return 'Machine can\'t hold more than ${0:.2f}...  Dispensing coins inserted.'.format(f_max_value)
         else:
             return money_collected
-    except TypeError:
+    except ValueError:
         return 'Please enter valid currency.\n'
 
 

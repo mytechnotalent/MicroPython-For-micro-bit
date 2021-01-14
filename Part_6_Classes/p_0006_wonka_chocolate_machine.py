@@ -86,7 +86,7 @@ class Machine:
         """
         return 'Total Money Collected: ${0:.2f}\n'.format(self.__total_money_collected)
 
-    def collect_money(self, max_value, f_quarters, f_dimes, f_nickels):
+    def collect_money(self, max_value, m_quarters, m_dimes, m_nickels):
         """
         Collects money into machine
 
@@ -97,11 +97,11 @@ class Machine:
             float or str
         """
         try:
-            money_collected = int(f_quarters) * 0.25
-            money_collected += int(f_dimes) * 0.10
-            money_collected += int(f_nickels) * 0.05
+            self.__money_collected = int(m_quarters) * 0.25
+            self.__money_collected += int(m_dimes) * 0.10
+            self.__money_collected += int(m_nickels) * 0.05
             if self.__money_collected <= 0.00:
-                return 'Please enter coins...'
+                return 'Please enter coins...\n'
             elif self.__money_collected >= max_value:
                 return 'Machine can\'t hold more than ${0:.2f}...  Dispensing coins inserted.\n'.format(max_value)
             else:

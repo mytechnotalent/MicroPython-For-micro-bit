@@ -83,7 +83,7 @@ def has_raw_materials(f_raw_materials):
         return True
 
 
-def collect_money(f_max_value):
+def collect_money(f_max_value, m_quarters, m_dimes, m_nickels):
     """Collect money into the machine
 
     Params:
@@ -93,16 +93,16 @@ def collect_money(f_max_value):
         float or str
     """
     try:
-        money_collected = int(input('Quarters: ')) * 0.25
-        money_collected += int(input('Dimes: ')) * 0.10
-        money_collected += int(input('Nickels: ')) * 0.05
+        money_collected = int(m_quarters) * 0.25
+        money_collected += int(m_dimes) * 0.10
+        money_collected += int(m_nickels) * 0.05
         if money_collected <= 0.00:
             return 'Insufficient funds...  Dispensing coins inserted.'
         elif money_collected >= f_max_value:
             return 'Machine can\'t hold more than ${0:.2f}...  Dispensing coins inserted.'.format(f_max_value)
         else:
             return money_collected
-    except ValueError:
+    except TypeError:
         return 'Please enter valid currency.\n'
 
 
@@ -187,7 +187,10 @@ while machine_active:
             print(has_enough_raw_materials)
             machine_active = False
         if isinstance(has_enough_raw_materials, bool):
-            money = collect_money(100.00)
+            quarters = input('Quarters: ')
+            dimes = input('Dimes: ')
+            nickels = input('Nickels: ')
+            money = collect_money(100.00, quarters, dimes, nickels)
             if not isinstance(money, float):
                 print(money)
             else:

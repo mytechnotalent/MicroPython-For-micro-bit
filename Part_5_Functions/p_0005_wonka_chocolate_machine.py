@@ -103,7 +103,7 @@ def collect_money(f_max_value, m_quarters, m_dimes, m_nickels):
         else:
             return money_collected
     except ValueError:
-        return 'Please enter valid currency.\n'
+        return 'Please enter valid currency...  Dispensing any coins inserted.\n'
 
 
 def has_enough_money(f_money_collected, f_chocolate_price):

@@ -83,7 +83,7 @@ def has_raw_materials(f_raw_materials):
         return True
 
 
-def collect_money(f_max_value, m_quarters, m_dimes, m_nickels):
+def collect_money(f_max_value, f_quarters, f_dimes, f_nickels):
     """Collect money into the machine
 
     Params:
@@ -93,9 +93,9 @@ def collect_money(f_max_value, m_quarters, m_dimes, m_nickels):
         float or str
     """
     try:
-        money_collected = int(m_quarters) * 0.25
-        money_collected += int(m_dimes) * 0.10
-        money_collected += int(m_nickels) * 0.05
+        money_collected = int(f_quarters) * 0.25
+        money_collected += int(f_dimes) * 0.10
+        money_collected += int(f_nickels) * 0.05
         if money_collected <= 0.00:
             return 'Insufficient funds...  Dispensing coins inserted.'
         elif money_collected >= f_max_value:
@@ -166,7 +166,7 @@ choices = ['dark', 'caramel', 'mint', 'surprise', 'stats', 'shutdown']
 
 while machine_active:
     valid_choice = False
-    choice = input('ORDER [dark - caramel - mint - surprise]: ')
+    choice = input('ORDER [dark @ $2.75 - caramel @ $3.25 - mint @ $2.50 - surprise @ $3.25]: ')
     if choice in choices:
         valid_choice = True
     else:

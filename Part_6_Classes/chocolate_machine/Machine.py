@@ -6,9 +6,9 @@ class Machine:
     def __init__(self):
         """
         Attrs:
-            __money_collected: float
-            __total_money_collected: float
-            __price: float
+            self.__money_collected: float
+            self.__total_money_collected: float
+            self.__price: float
         """
         self.__money_collected = 0
         self.__total_money_collected = 0
@@ -71,10 +71,7 @@ class Machine:
             entered_password: str
 
         Returns:
-            False or str
+            str
         """
-        if entered_password == shutdown_password:
-            return False
-        else:
+        if entered_password != shutdown_password:
             return 'YOU ARE NOT AUTHORIZED TO DISABLE THIS MACHINE!\n'
-

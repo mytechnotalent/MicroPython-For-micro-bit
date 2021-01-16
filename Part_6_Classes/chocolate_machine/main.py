@@ -15,10 +15,11 @@ if __name__ == '__main__':
         else:
             print('That is not a valid selection...\n')
         if choice == 'shutdown':
-            entered_password = input('ENTER SHUTDOWN PASSWORD: ')
-            not_authorized = chocolate_machine.shutdown_machine('8675309', entered_password)
+            not_authorized = chocolate_machine.shutdown_machine('8675309')
             if not_authorized:
                 print(not_authorized)
+            else:
+                chocolate_machine_active = False
         elif choice == 'stats':
             stats = chocolate_machine.stats()
             print(stats)

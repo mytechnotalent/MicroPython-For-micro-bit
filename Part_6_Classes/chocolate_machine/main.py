@@ -1,5 +1,5 @@
-from lib.ChocolateMachine import ChocolateMachine
-from data.data import CHOCOLATE_CHOICES
+from ChocolateMachine import ChocolateMachine
+from data import CHOCOLATE_CHOICES
 
 if __name__ == '__main__':
     chocolate_machine_active = True

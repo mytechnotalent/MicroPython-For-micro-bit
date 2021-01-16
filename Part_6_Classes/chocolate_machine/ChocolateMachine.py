@@ -1,5 +1,5 @@
-from lib.Machine import Machine
-from data.data import raw_materials
+from Machine import Machine
+from data import raw_materials
 
 
 class ChocolateMachine(Machine):

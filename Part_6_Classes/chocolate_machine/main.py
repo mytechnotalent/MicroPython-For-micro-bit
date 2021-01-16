@@ -15,7 +15,8 @@ if __name__ == '__main__':
         else:
             print('That is not a valid selection...\n')
         if choice == 'shutdown':
-            not_authorized = chocolate_machine.shutdown_machine('8675309')
+            entered_password = input('ENTER SHUTDOWN PASSWORD: ')
+            not_authorized = chocolate_machine.shutdown_machine('8675309', entered_password)
             if not_authorized:
                 print(not_authorized)
             else:
@@ -48,4 +49,3 @@ if __name__ == '__main__':
             chocolate_machine_active = False
 
     print('We are going down for maintenance...')
-

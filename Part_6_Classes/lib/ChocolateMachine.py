@@ -10,7 +10,7 @@ class ChocolateMachine(Machine):
     def __init__(self, choices):
         """
         Attrs:
-            self.choices: str
+            choices: str
         """
         super().__init__()
         self.choices = choices

@@ -9,8 +9,11 @@ class FileManager:
         """
         Write 'Red Key' to inventory file upon picking it up
         """
-        with open('inventory', 'w') as file:
-            file.write('Red Key')
+        try:
+            with open('inventory', 'w') as file:
+                file.write('Red Key')
+        except OSError:
+            pass
 
     @staticmethod
     def read_inventory_file():
@@ -32,5 +35,8 @@ class FileManager:
         """
         Clear inventory file after winning a game
         """
-        with open('inventory', 'w') as file:
-            file.write('')
+        try:
+            with open('inventory', 'w') as file:
+                file.write('')
+        except OSError:
+            pass

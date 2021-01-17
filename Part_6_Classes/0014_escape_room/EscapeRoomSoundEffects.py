@@ -19,13 +19,18 @@ class EscapeRoomSoundEffects(SoundEffects):
     def play_success_sound_effect():
         """
         Play a success sound effect as a result of a winning question
+
+        Returns:
+            str, str
         """
-        music.play('c4:4')
-        music.play('c5:8')
+        return 'c4:4', 'c5:8'
 
     @staticmethod
     def win_game_sound_effect():
         """
         Play a win game sound effect as a result of a escaping the room
+
+        Returns:
+            str
         """
-        music.play(music.POWER_UP)
+        return music.POWER_UP

@@ -28,7 +28,12 @@ This tutorial will discuss MicroPython functions for the micro:bit V2.
 
 -> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-5-lists-tuples-dictionaries-kevin-thomas/) to read the article on LinkedIn.
 
-## Lesson 6: COMING SOON!
+## Lesson 6: MicroPython For micro:bit (Part 6: Classes)
+This tutorial will discuss MicroPython classes for the micro:bit V2.
+
+-> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-6-classes-kevin-thomas/) to read the article on LinkedIn.
+
+## Lesson 7: COMING SOON!
 
 ## License
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)

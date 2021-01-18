@@ -38,24 +38,21 @@ display.show(Image.SURPRISED)
 say('Let the games begin!', speed=SPEED)
 display.show(Image.HAPPY)
 sleep(1)
-    
+ 
 while guesses > 0:
     display.show(room_number)
-    
     if button_a.was_pressed():
         if room_number == 5:
             pass
         else:
             room_number += 1
-            display.show(room_number)
-            
+            display.show(room_number)   
     if button_b.was_pressed():
         if room_number == 1:
             pass
         else:
             room_number -= 1
             display.show(room_number)
-    
     if pin_logo.is_touched():
         if rooms[room_number] == 'caramel':
             display.show(Image.SURPRISED)
@@ -68,7 +65,7 @@ while guesses > 0:
             display.show(Image.HAPPY)
             sleep(1)
             guesses -= 1
-
+            
 if guesses <= 0:
     display.show(Image.SURPRISED)
     say('Sorry about that.  Please try again by click the reset button.', speed=SPEED)

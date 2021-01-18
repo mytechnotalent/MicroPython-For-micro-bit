@@ -1,4 +1,3 @@
-# from microbit import display, Image
 from Ui import Ui
 
 
@@ -24,10 +23,14 @@ class EscapeRoomUi(Ui):
         intro_speaking_instructions = 'Press the buttons, logo and pin two to move.\n'
         return intro_text_welcome, intro_speaking_instructions
 
-    def update_display(self, led_height, led_width, player_location):
+    def update_display(self, led_height, led_width):
         """
         Update display with each event where we re-draw
         cave and player's current position
+
+        Params:
+            led_height: int
+            led_width: int
 
         Returns:
             grid: str

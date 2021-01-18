@@ -1,7 +1,7 @@
 from time import sleep
 import music
+from speech import say
 from microbit import display, Image, button_a, button_b, pin_logo, pin2
-from Speech import Speech
 from EscapeRoomCave import EscapeRoomCave
 from EscapeRoomPlayer import EscapeRoomPlayer
 from EscapeRoomUi import EscapeRoomUi
@@ -10,7 +10,6 @@ from Question import Question
 from FileManager import FileManager
 from RandomNumberGenerator import RandomNumberGenerator
 
-speech = Speech()
 cave = EscapeRoomCave(5, 5)
 player = EscapeRoomPlayer()
 ui = EscapeRoomUi()
@@ -19,17 +18,19 @@ sound_effects = EscapeRoomSoundEffects()
 file_manager = FileManager()
 random_number_generator = RandomNumberGenerator()
 
+SPEED = 95
+
 if __name__ == '__main__':
     optional_height, optional_width = cave.optional_spaces_available()
     led_height, led_width = cave.grid_size()
     player_location = player.location()
     display.clear()
-    grid = ui.update_display(led_height, led_width, player_location)
+    grid = ui.update_display(led_height, led_width)
     display.show(Image(grid))
     display.set_pixel(player_location[0], player_location[1], 9)
     intro_text_welcome, intro_speaking_instructions = ui.intro()
-    speech.speak(intro_text_welcome)
-    speech.speak(intro_speaking_instructions)
+    say(intro_text_welcome, speed=SPEED)
+    say(intro_speaking_instructions, speed=SPEED)
 
     question_1 = False
     final_question = False
@@ -41,7 +42,7 @@ if __name__ == '__main__':
                 player.move_west()
                 player_location = player.location()
                 display.clear()
-                grid = ui.update_display(led_height, led_width, player_location)
+                grid = ui.update_display(led_height, led_width)
                 display.show(Image(grid))
                 display.set_pixel(player_location[0], player_location[1], 9)
             sleep(0.25)
@@ -50,7 +51,7 @@ if __name__ == '__main__':
                 player.move_east()
                 player_location = player.location()
                 display.clear()
-                grid = ui.update_display(led_height, led_width, player_location)
+                grid = ui.update_display(led_height, led_width)
                 display.show(Image(grid))
                 display.set_pixel(player_location[0], player_location[1], 9)
             sleep(0.25)
@@ -60,7 +61,7 @@ if __name__ == '__main__':
                 player.move_north()
                 player_location = player.location()
                 display.clear()
-                grid = ui.update_display(led_height, led_width, player_location)
+                grid = ui.update_display(led_height, led_width)
                 display.show(Image(grid))
                 display.set_pixel(player_location[0], player_location[1], 9)
             sleep(0.25)
@@ -69,7 +70,7 @@ if __name__ == '__main__':
                 player.move_south()
                 player_location = player.location()
                 display.clear()
-                grid = ui.update_display(led_height, led_width, player_location)
+                grid = ui.update_display(led_height, led_width)
                 display.show(Image(grid))
                 display.set_pixel(player_location[0], player_location[1], 9)
             sleep(0.25)
@@ -85,10 +86,10 @@ if __name__ == '__main__':
                     correct_answer_index, \
                     correct_answer \
                     = question.get_random_question()
-                speech.speak(random_question)
-                speech.speak('Press Ayy for {0}.'.format(answer_1))
-                speech.speak('Toch the logo for {0}.'.format(answer_2))
-                speech.speak('Press B for {0}.'.format(answer_3))
+                say(random_question, speed=SPEED)
+                say('Press Ayy for {0}.'.format(answer_1), speed=SPEED)
+                say('Toch the logo for {0}.'.format(answer_2), speed=SPEED)
+                say('Press B for {0}.'.format(answer_3), speed=SPEED)
                 while True:
                     if button_a.is_pressed():
                         response = 0
@@ -100,24 +101,24 @@ if __name__ == '__main__':
                         response = 2
                         break
                 if response == correct_answer_index:
-                    speech.speak('Correct!')
+                    say('Correct!', speed=SPEED)
                     sound_effects.play_success_sound_effect()
                     question_1 = True
                 else:
-                    speech.speak('The correct answer is {0}.'.format(correct_answer))
+                    say('The correct answer is {0}.'.format(correct_answer), speed=SPEED)
                 if question_1:
                     player.inventory.append('Red Key')
-                    speech.speak('You picked up the red key!')
+                    say('You picked up the red key!', speed=SPEED)
                     file_manager.write_inventory_file()
                     player_location = player.reset_player_location()
                     display.clear()
-                    grid = ui.update_display(led_height, led_width, player_location)
+                    grid = ui.update_display(led_height, led_width)
                     display.show(Image(grid))
                     display.set_pixel(player_location[0], player_location[1], 9)
                 if not question_1:
                     player_location = player.reset_player_location()
                     display.clear()
-                    grid = ui.update_display(led_height, led_width, player_location)
+                    grid = ui.update_display(led_height, led_width)
                     display.show(Image(grid))
                     display.set_pixel(player_location[0], player_location[1], 9)
         x, y = random_number_generator.generate_random_numbers()
@@ -131,10 +132,10 @@ if __name__ == '__main__':
                 correct_answer_index, \
                 correct_answer \
                 = question.get_random_question()
-            speech.speak(random_question)
-            speech.speak('Press Ayy for {0}.'.format(answer_1))
-            speech.speak('Toch the logo for {0}.'.format(answer_2))
-            speech.speak('Press B for {0}.'.format(answer_3))
+            say(random_question, speed=SPEED)
+            say('Press Ayy for {0}.'.format(answer_1), speed=SPEED)
+            say('Toch the logo for {0}.'.format(answer_2), speed=SPEED)
+            say('Press B for {0}.'.format(answer_3), speed=SPEED)
             while True:
                 if button_a.is_pressed():
                     response = 0
@@ -146,23 +147,23 @@ if __name__ == '__main__':
                     response = 2
                     break
             if response == correct_answer_index:
-                speech.speak('Correct!')
+                say('Correct!', speed=SPEED)
                 sound_effects.play_success_sound_effect()
                 final_question = True
             else:
-                speech.speak('The correct answer is {0}.'.format(correct_answer))
+                say('The correct answer is {0}.'.format(correct_answer), speed=SPEED)
             if 'Red Key' in player.inventory and final_question:
-                speech.speak('You Won!  You Escaped!')
+                say('You Won!  You Escaped!', speed=SPEED)
                 win_game_sound_effect = sound_effects.win_game_sound_effect()
                 music.play(win_game_sound_effect)
                 file_manager.clear_inventory_file()
                 display.show(Image.ALL_CLOCKS, loop=True, delay=100)
             else:
-                speech.speak('You do not have the red key to escape.')
+                say('You do not have the red key to escape.', speed=SPEED)
                 final_question = False
             if not final_question:
                 player_location = player.reset_player_location()
                 display.clear()
-                grid = ui.update_display(led_height, led_width, player_location)
+                grid = ui.update_display(led_height, led_width)
                 display.show(Image(grid))
                 display.set_pixel(player_location[0], player_location[1], 9)

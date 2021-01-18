@@ -3,7 +3,8 @@ from Room import Room
 
 class EscapeRoomCave(Room):
     """
-    Child class to represent an escape room cave inheriting from the Room base class
+    Child class to represent an escape room cave inheriting from the
+    Room base class
     """
 
     def __init__(self, led_height, led_width):

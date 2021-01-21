@@ -1,11 +1,9 @@
 import music
-from SoundEffects import SoundEffects
 
 
-class EscapeRoomSoundEffects(SoundEffects):
+class EscapeRoomSoundEffects:
     """
-    Child class to represent an escape room collection of sound effects inheriting
-    from the SoundEffects base class
+    Class to represent an escape room collection of sound effects
     """
 
     def __init__(self, volume=None):
@@ -13,7 +11,7 @@ class EscapeRoomSoundEffects(SoundEffects):
         Attrs:
             volume: int
         """
-        super().__init__(volume)
+        self.volume = volume
 
     @staticmethod
     def play_success_sound_effect():

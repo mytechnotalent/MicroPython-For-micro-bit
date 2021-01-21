@@ -28,7 +28,8 @@ Escape Room Application Requirements
    j. Build out our FileManager.py logic.
    k. Built our our UI base class logic.
    l. Build out our EscapeRoomUi.py child class logic.
-   m. Tie the logic together into a specific application in main.py where we We 
+   m. Build out our Game.py integretions class logic.
+   n. Tie the logic together into a specific application in main.py where we We 
       then have our main while loop to first handle player movement and then after 
       an event is triggered by clicking one of the 4 button we generate a random 
       number and place into x and y.  If the player steps into one of those random  

@@ -3,18 +3,18 @@ class Player:
     Base class to represent a generic player
     """
 
-    def __init__(self, name='Generic', __dx=0, __dy=0, armour=None, inventory=None):
+    def __init__(self, name='Generic', dx=0, dy=0, armour=None, inventory=None):
         """
         Attrs:
             name: str
-            __dx: int
-            __dy: int
+            dx: int
+            dy: int
             armour = list
             inventory: list
         """
         self.name = name
-        self.__dx = __dx
-        self.__dy = __dy
+        self.dx = dx
+        self.dy = dy
         if armour is None:
             armour = []
         self.armour = armour
@@ -29,8 +29,8 @@ class Player:
             dx: int
             dy: int
         """
-        self.__dx += dx
-        self.__dy += dy
+        self.dx += dx
+        self.dy += dy
 
     def move_north(self):
         """
@@ -55,12 +55,3 @@ class Player:
         Method to move a generic player from their current position to one position west
         """
         self.__move(dx=-1, dy=0)
-
-    def location(self):
-        """
-        Method to return a generic players current position
-
-        Returns:
-            tuple
-        """
-        return self.__dx, self.__dy

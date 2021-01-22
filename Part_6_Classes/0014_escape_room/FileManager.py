@@ -1,17 +1,17 @@
 class FileManager:
     """
-    Class to implement micro:bit file access to store inventory if
+    Class to implement file access to store inventory if
     power lost or reset to maintain persistence
     """
 
     @staticmethod
-    def write_inventory_file():
+    def write_inventory_file(inventory_item):
         """
-        Write 'Red Key' to inventory file upon picking it up
+        Write inventory item to inventory file upon picking it up
         """
         try:
             with open('inventory', 'w') as file:
-                file.write('Red Key')
+                file.write(inventory_item)
         except OSError:
             pass
 

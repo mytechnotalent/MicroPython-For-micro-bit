@@ -1,3 +1,4 @@
+from time import sleep
 from Player import Player
 
 
@@ -6,24 +7,107 @@ class EscapeRoomPlayer(Player):
     Child class to represent an escape room player inheriting from the Player base class
     """
 
-    def __init__(self, name=None, __dx=1, __dy=1, armour=None, inventory=None):
+    def __init__(self, name=None, dx=1, dy=1, armour=None, inventory=None):
         """
         Attrs:
             name: str
-            __dx: int
-            __dy: int
+            dx: int
+            dy: int
             armour = list
             inventory: list
         """
-        super().__init__(name, __dx, __dy, armour, inventory)
+        super().__init__(name, dx, dy, armour, inventory)
 
-    def reset_player_location(self):
+    def keyboard_a_press(self, grid):
         """
-        Method to move an escape room player to init position after an incorrect answer
+        Method to handle a keyboard a press
+
+        Params:
+            grid: object
 
         Returns:
-            tuple
+            int, int
         """
-        self.__dx = 1
-        self.__dy = 1
-        return self.__dx, self.__dy
+        # If player is against the left wall do NOT allow them to go through it
+        if self.dx != 1 and self.dx <= grid.available_width:
+            self.move_west()
+        sleep(0.25)
+        return self.dx, self.dy
+
+    def keyboard_d_press(self, grid):
+        """
+        Method to handle a keyboard d press
+
+        Params:
+            grid: object
+
+        Returns:
+            int, int
+        """
+        if self.dx < grid.available_width:
+            self.move_east()
+        sleep(0.25)
+        return self.dx, self.dy
+
+    def keyboard_w_press(self, grid):
+        """
+        Method to handle a keyboard w press
+
+        Params:
+            grid: object
+
+        Returns:
+            int, int
+        """
+        # If badge player is against the top wall do NOT allow them to go through it
+        if self.dy != 1 and self.dy <= grid.available_width:
+            self.move_north()
+        sleep(0.25)
+        return self.dx, self.dy
+
+    def keyboard_s_press(self, grid):
+        """
+        Method to handle a keyboard s press
+
+        Params:
+            grid: object
+
+        Returns:
+            int, int
+        """
+        if self.dy < grid.available_height:
+            self.move_south()
+        sleep(0.25)
+        return self.dx, self.dy
+
+    @staticmethod
+    def get_inventory(file_manager):
+        """
+        Method to get the inventory from disk
+
+        Params:
+            file_manager: object
+
+        Returns:
+            str
+        """
+        inventory = file_manager.read_inventory_file()
+        return inventory
+
+    @staticmethod
+    def pick_up_red_key(file_manager):
+        """
+        Method to handle picking up red key
+
+        Params:
+            file_manager: object
+        """
+        file_manager.write_inventory_file('Red Key')
+        return 'You picked up the red key!'
+
+    @staticmethod
+    def without_red_key():
+        """
+        Method to handle not having the red key
+        """
+        return 'You do not have the red key to escape.'

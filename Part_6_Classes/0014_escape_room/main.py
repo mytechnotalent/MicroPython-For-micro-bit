@@ -18,29 +18,29 @@ if __name__ == '__main__':
     SPEED = 95
 
     previous_player_location = player_location
-    display_grid = game.update_ui(grid, player)
+    update_grid = grid.update(player)
 
     while True:
         # To ensure we do not generate a question if the player is hitting a wall
         # or not entering a valid move
         previous_player_location = player_location
-        display.show(Image(display_grid))
+        display.show(Image(update_grid))
         while True:
             if button_a.is_pressed():
-                player_location = player.keyboard_a_press(grid)
-                display_grid = game.update_ui(grid, player)
+                player_location = player.move_west(grid)
+                update_grid = grid.update(player)
                 break
             elif button_b.is_pressed():
-                player_location = player.keyboard_d_press(grid)
-                display_grid = game.update_ui(grid, player)
+                player_location = player.move_east(grid)
+                update_grid = grid.update(player)
                 break
             elif pin_logo.is_touched():
-                player_location = player.keyboard_w_press(grid)
-                display_grid = game.update_ui(grid, player)
+                player_location = player.move_north(grid)
+                update_grid = grid.update(player)
                 break
             elif pin2.is_touched():
-                player_location = player.keyboard_s_press(grid)
-                display_grid = game.update_ui(grid, player)
+                player_location = player.move_south(grid)
+                update_grid = grid.update(player)
                 break
         random_location = (x, y) = game.generate_random_numbers(grid)
         if random_location == player_location and random_location != previous_player_location:
@@ -48,9 +48,9 @@ if __name__ == '__main__':
                 = game.ask_random_question()
             display.show(Image.SURPRISED)
             say(random_question, speed=SPEED)
-            say('Press 1 for {0}.'.format(answer_1), speed=SPEED)
-            say('Press 2 for {0}.'.format(answer_2), speed=SPEED)
-            say('Press 3 for {0}.'.format(answer_3), speed=SPEED)
+            say('Press the aay button for {0}.'.format(answer_1), speed=SPEED)
+            say('Press the logo for {0}.'.format(answer_2), speed=SPEED)
+            say('Press the bee button for {0}.'.format(answer_3), speed=SPEED)
             display.show(Image.HAPPY)
             while True:
                 if button_a.is_pressed():
@@ -82,7 +82,8 @@ if __name__ == '__main__':
                     display.show(Image.SURPRISED)
                     say(game.win(file_manager), speed=SPEED)
                     music.play(music.POWER_UP)
-                    display.show(Image.ALL_CLOCKS, loop=True, delay=100)
+                    display.show(Image.ALL_CLOCKS, loop=False, delay=100)
+                    break
             else:
                 display.show(Image.SURPRISED)
                 say(game.incorrect_answer_response(correct_answer), speed=SPEED)

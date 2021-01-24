@@ -1,5 +1,4 @@
 from random import randint, choice
-from microbit import display
 from data import questions
 
 
@@ -66,7 +65,7 @@ class Game:
     @staticmethod
     def incorrect_answer_response(correct_answer):
         """
-        Method to handle correct answer logic
+        Method to handle incorrect answer logic
 
         Params:
             correct_answer: str
@@ -88,20 +87,4 @@ class Game:
             str
         """
         file_manager.clear_inventory_file()
-        return '\nYou Won!\nYou Escaped!'
-
-    @staticmethod
-    def update_ui(grid, player):
-        """
-        Method to update ui
-
-        Params:
-            grid: object
-            player: object
-
-        Returns:
-            str
-        """
-        display.clear()
-        display_grid = grid.update_display(player)
-        return display_grid
+        return '\nYou Escaped!'

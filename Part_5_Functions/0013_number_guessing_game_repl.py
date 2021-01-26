@@ -22,24 +22,28 @@ def guess_number(f_guess, f_turns_left):
         return '\nRULES: Please enter a number between 1 and 9.', f_turns_left - 1
 
 
-def did_win(f_guess, f_correct_answer, f_turns_left):
+def did_win(f_guess, f_correct_answer):
     """Check player guess against the correct answer
 
     Params:
         f_guess: int
         f_correct_answer: int
-        f_turns_left: int
 
     Returns:
         str
     """
-    if f_turns_left >= 1:
+    try:
+        f_guess = int(f_guess)
         if f_guess > f_correct_answer:
             return 'HINT: Lower Than {0}'.format(f_guess)
         elif f_guess < f_correct_answer:
             return 'HINT: Higher Than {0}'.format(f_guess)
         else:
             return 'You won!'
+    except ValueError:
+        return '\nRULES: Please enter a number between 1 and 9.'
+    except TypeError:
+        return '\nRULES: Please enter a number between 1 and 9.'
 
 
 print('RULES: Guess a number between 1 and 9.')
@@ -49,7 +53,7 @@ turns_left = 3
 guess = 1
 
 while guess != correct_answer:
-    if turns_left >= 1:
+    if turns_left >= 0:
         guess = input('Guess: ')
         guess, turns_left = guess_number(guess, turns_left)
         if guess != correct_answer:
@@ -60,13 +64,9 @@ while guess != correct_answer:
             else:
                 print('The correct answer is {0}, let\'s play again!'.format(correct_answer))
                 break
-    if isinstance(guess, str):
-        print(guess)
-    else:
-        if turns_left:
-            game_status = did_win(guess, correct_answer, turns_left)
-            if game_status == 'You won!':
-                print(game_status)
-                break
-            else:
-                print(game_status)
+        game_status = did_win(guess, correct_answer)
+        if game_status == 'You won!':
+            print(game_status)
+            break
+        else:
+            print(game_status)

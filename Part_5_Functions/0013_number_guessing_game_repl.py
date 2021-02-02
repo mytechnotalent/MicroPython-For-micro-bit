@@ -5,7 +5,7 @@ def guess_number(f_guess, f_turns_left):
     """Obtain player guess
 
     Params:
-        f_guess: int
+        f_guess: str
         f_turns_left: int
 
     Returns:
@@ -26,7 +26,7 @@ def did_win(f_guess, f_correct_answer):
     """Check player guess against the correct answer
 
     Params:
-        f_guess: int
+        f_guess: int, str
         f_correct_answer: int
 
     Returns:

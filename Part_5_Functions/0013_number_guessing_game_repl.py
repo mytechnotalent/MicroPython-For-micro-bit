@@ -32,25 +32,19 @@ def did_win(f_guess, f_correct_answer):
     Returns:
         str
     """
-    try:
-        f_guess = int(f_guess)
-        if f_guess > f_correct_answer:
-            return 'HINT: Lower Than {0}'.format(f_guess)
-        elif f_guess < f_correct_answer:
-            return 'HINT: Higher Than {0}'.format(f_guess)
-        else:
-            return 'You won!'
-    except ValueError:
-        return '\nRULES: Please enter a number between 1 and 9.'
-    except TypeError:
-        return '\nRULES: Please enter a number between 1 and 9.'
+    if f_guess > f_correct_answer:
+        return 'HINT: Lower Than {0}'.format(f_guess)
+    elif f_guess < f_correct_answer:
+        return 'HINT: Higher Than {0}'.format(f_guess)
+    else:
+        return 'You won!'
 
 
 print('RULES: Guess a number between 1 and 9.')
 
 correct_answer = randint(1, 9)
 turns_left = 3
-guess = 1
+guess = 0
 
 while guess != correct_answer:
     if turns_left >= 0:

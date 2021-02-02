@@ -41,9 +41,9 @@ def did_win(f_guess, f_correct_answer):
         else:
             return 'You won!'
     except ValueError:
-        return '\nRULES: Please enter a number between 1 and 9.', f_turns_left - 1
+        return '\nRULES: Please enter a number between 1 and 9.'
     except TypeError:
-        return '\nRULES: Please enter a number between 1 and 9.', f_turns_left - 1
+        return '\nRULES: Please enter a number between 1 and 9.'
 
 
 print('RULES: Guess a number between 1 and 9.')

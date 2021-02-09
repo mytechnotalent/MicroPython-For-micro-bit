@@ -36,7 +36,7 @@ This tutorial will discuss MicroPython classes for the micro:bit V2.
 ## Lesson 7: MicroPython For micro:bit (Part 7: Unittest)
 This tutorial will discuss MicroPython unittest for the micro:bit V2.
 
--> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-7-unittest-kevin-thomas/) to read the article on LinkedIn.
+-> Click [HERE](https://www.linkedin.com/pulse/micropython-microbit-part-7-unittest-kevin-thomas-1e/) to read the article on LinkedIn.
 
 ## License
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)

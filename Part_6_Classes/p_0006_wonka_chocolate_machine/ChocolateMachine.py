@@ -43,7 +43,7 @@ class ChocolateMachine(Machine):
             m_raw_materials: dict
 
         Returns:
-            str or True
+            str or bool
         """
         additional_resources_needed = ''
         for m_raw_material in m_raw_materials:

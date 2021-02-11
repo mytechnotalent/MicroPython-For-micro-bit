@@ -71,7 +71,7 @@ def has_raw_materials(f_raw_materials):
         f_raw_materials: dict
 
     Returns:
-        str or True
+        str or bool
     """
     additional_resources_needed = ''
     for f_raw_material in f_raw_materials:

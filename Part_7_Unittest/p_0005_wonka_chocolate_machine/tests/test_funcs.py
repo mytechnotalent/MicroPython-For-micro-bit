@@ -69,10 +69,10 @@ class TestFuncs(unittest.TestCase):
             'Machine Needs Additional: vanilla extract\n'
 
         # Calls
-        bool_1 = has_raw_materials(f_raw_materials, d_raw_materials)
+        string_1 = has_raw_materials(f_raw_materials, d_raw_materials)
 
         # Asserts
-        self.assertEqual(bool_1, return_1)
+        self.assertEqual(string_1, return_1)
 
     def test_collect_money(self):
         """

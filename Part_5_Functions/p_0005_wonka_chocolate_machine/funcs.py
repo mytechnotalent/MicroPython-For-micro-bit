@@ -80,6 +80,7 @@ def stats(d_raw_materials, f_total_money_collected):
 
     Params:
         d_raw_materials: dict
+        f_money_collected: float
 
     Returns:
         str

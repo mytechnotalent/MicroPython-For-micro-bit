@@ -51,8 +51,7 @@ def has_enough_money(f_money_collected, f_chocolate_price, f_total_money_collect
     """
     if f_money_collected >= f_chocolate_price:
         excess_money_collected = round(f_money_collected - f_chocolate_price, 2)
-        global total_money_collected
-        total_money_collected += f_chocolate_price
+        f_total_money_collected += f_chocolate_price
         return 'Change: ${0:.2f}\n'.format(excess_money_collected), f_total_money_collected
     else:
         return 'Insufficient funds...  Dispensing coins inserted.\n'
